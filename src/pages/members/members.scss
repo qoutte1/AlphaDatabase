@@ -1,0 +1,21 @@
+page-members {
+
+.profilepicsize  {
+    width: 100% !important;  
+    height : 100% !important;  
+    max-width: 70px !important;  //any size
+    max-height: 70px !important; //any size 
+}
+
+
+// .custom  {
+//     // height: 60px;
+//     color: #9E9E9E;
+// }
+
+.custom :active{
+    background-color: #ECEFF1;
+    //#B0BEC5
+    color: #00838F;
+}
+}

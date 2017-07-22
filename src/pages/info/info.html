@@ -1,0 +1,123 @@
+<!--
+  Generated template for the InfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>info</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only>
+      <ion-icon name="add"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content text-wrap class="bg-style">
+  
+<div *ngIf="member">
+  <ion-card>
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{ member.image }}">
+     <!--<ion-row>
+     <ion-col center text-left>
+        <ion-note>{{member.year}}</ion-note>
+      </ion-col>
+      </ion-row>-->
+    </ion-avatar>
+
+    <h2>{{member.mName}}</h2>
+    <ion-note>{{member.year}}</ion-note>
+    <p>{{member.phone}}</p>
+    <p>{{member.email}}</p>
+  </ion-item>
+
+  <!--<ion-row>
+  
+    <ion-col center text-left>
+      <ion-note>
+        Alpha
+      </ion-note>
+    </ion-col>
+  </ion-row>-->
+
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Birthday</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{member.birthday}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Major</h3>
+
+  <ion-row>
+     <ion-col center text-left>
+      <p>{{member.major}}</p>
+    </ion-col>
+
+    <ion-col center text-right>
+      <p>{{member.expGrad}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col center text-left>
+      <p>TU ID: {{member.tuID}}</p>
+    </ion-col>
+  </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Address</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{member.address}}</p>
+    
+        <p *ngIf="member.roomates != 'None'">(roomates: {{member.roomates}})</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item *ngIf="member.bigs != 'None'" class="new-text">
+     <h3>Big's</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{member.bigs}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item *ngIf="member.lits != 'None'" class="new-text">
+     <h3>Little's</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{member.lits}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+<!------------------------------------------------------------>
+  <ion-item *ngIf="member.hobbies != 'None'" class="new-text">
+     <h3>Clubs/Extra-Ciriculars</h3>
+
+  <ion-row>
+     <ion-col center text-left>
+      <p>{{member.hobbies}}</p>
+      
+    </ion-col>
+  </ion-row>
+
+  </ion-item>
+  <!------------------------------------------------------------>
+  
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+
+    <ion-title>Pledges</ion-title>
+
+    <ion-buttons end>
+    <button ion-button icon-only (click)="addPledge()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content text-wrap class="bg-style">
+
+  <ion-card class="custom" *ngFor="let pledge of pledges | async" (swipe)="swipeEvent(pledge.$key)">
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{pledge.image}}">
+      <!--<ion-note class = "pclass">Alpha</ion-note>-->
+    </ion-avatar>
+
+    <h2>{{pledge.pName}}</h2>
+    <p>{{pledge.phone}}</p>
+    <p>{{pledge.email}}</p>
+  </ion-item>
+
+  <!------------------------------------------------------------>
+  <!--<ion-item class="new-text">
+     <h3>Contact</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{pledge.phone}}</p>
+        <p>{{pledge.email}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>-->
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Birthday</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{pledge.birthday}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Major</h3>
+
+  <ion-row>
+     <ion-col center text-left>
+      <p>{{pledge.major}}</p>
+    </ion-col>
+
+    <ion-col center text-right>
+      <p>{{pledge.expGrad}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col center text-left>
+      <p>TU ID: {{pledge.tuID}}</p>
+    </ion-col>
+  </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Address</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{pledge.address}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item *ngIf="pledge.hobbies != 'None'" class="new-text">
+     <h3>Clubs/Extra-Ciriculars</h3>
+
+  <ion-row>
+     <ion-col center text-left>
+      <p>{{pledge.hobbies}}</p>
+      
+    </ion-col>
+  </ion-row>
+
+  </ion-item>
+  <!------------------------------------------------------------>
+</ion-card>
+
+</ion-content>

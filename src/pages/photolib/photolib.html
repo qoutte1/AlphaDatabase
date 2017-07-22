@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+    <button ion-button icon-only (click)="selectPhoto()">
+      <ion-icon name="md-images"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title >Photos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-style">
+
+    <ion-grid >
+        <ion-row>
+            <ion-col *ngFor="let photo of gallery | async" col-6><ion-card><img src="{{photo.image}}" #myImage (click) = "presentImage(myImage)" (press)="pressEvent(myImage)"/></ion-card></ion-col>
+        </ion-row>
+    </ion-grid>
+  
+<!-- 
+  <ion-card class="custom" *ngFor="let photo of photos | async" (click) = "itemSelected($event, member)" (swipe)="swipeEvent(member.$key)">
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{member.image}}">
+    </ion-avatar>
+
+    <h2>{{member.mName}}</h2>
+    <ion-note>{{member.year}}</ion-note>
+    <p>{{member.phone}}</p>
+    <p>{{member.email}}</p>
+  </ion-item>
+
+
+
+</ion-card> -->
+
+</ion-content>

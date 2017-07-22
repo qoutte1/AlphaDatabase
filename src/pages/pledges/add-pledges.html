@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Pledge</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="{{myPhotoURL}}">
+            <!--<ion-note class = "pclass">Alpha</ion-note>-->
+        </ion-avatar>
+         <ion-buttons end>
+            <button ion-button color="danger" clear (click)="selectPhoto()">
+            add photo
+            </button>
+        </ion-buttons>
+    </ion-item>
+
+<ion-list>
+      <ion-list-header>Input Pledge</ion-list-header>
+      
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="nm" placeholder="name"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="ph" placeholder="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="email" [(ngModel)]="em" placeholder="tu email"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="bd" placeholder="birthday"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="mj" placeholder="major"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="eg" placeholder="expected grad"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="td" placeholder="tu id"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="ad" placeholder="local address"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-input type="text" [(ngModel)]="hs" placeholder="clubs/extra-ciriculars (if none type: None)"></ion-input>
+      </ion-item>
+</ion-list>
+<button ion-button block (click)="pledgeAdd(data)">add pledge</button>
+
+</ion-content>

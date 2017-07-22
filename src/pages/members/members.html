@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+    <button ion-button icon-only (click)="addMember()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title >Members</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-style">
+  
+
+  <ion-card class="custom" *ngFor="let member of members | async" (click) = "itemSelected($event, member)" (swipe)="swipeEvent(member.$key)">
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{member.image}}">
+      <!--<ion-note class = "pclass">Alpha</ion-note>-->
+    </ion-avatar>
+
+    <h2>{{member.mName}}</h2>
+    <ion-note>{{member.year}}</ion-note>
+    <p>{{member.phone}}</p>
+    <p>{{member.email}}</p>
+  </ion-item>
+
+  <!--<ion-card-content>
+    <ion-note class = "pclass">Alpha</ion-note>
+  </ion-card-content>-->
+
+  <!--<ion-row>
+  
+    <ion-col center text-left>
+      <ion-note>
+        {{member.year}}
+      </ion-note>
+    </ion-col>
+  </ion-row>-->
+
+</ion-card>
+
+</ion-content>

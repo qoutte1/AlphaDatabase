@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+
+    <ion-buttons end>
+    <button ion-button icon-only (click)="addEvent()">
+      <ion-icon name="md-calendar"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>Events</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--maybe change bg-style-->
+<ion-content text-wrap class="bg-style"> 
+    <div *ngFor="let event of events | async">
+  <ion-card (swipe)="swipeEvent(event.$key)">
+  <ion-item class="custom">
+      <h2>{{event.evDate | date}}</h2>
+      <h3 item-end>{{event.evTime}} {{event.evAMPM}}</h3>
+  </ion-item>
+  <ion-item class="new-text">
+    <h2 item-start>{{event.evTitle}}</h2>
+  </ion-item>
+
+  <!------------------------------------------------------------>
+  <ion-item>
+     <h3>Info:</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{event.evInfo}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  
+
+    </ion-card>
+  </div>
+    
+</ion-content>
