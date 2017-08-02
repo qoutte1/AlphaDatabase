@@ -27,20 +27,26 @@ export class MembersPage implements OnInit{
 
 // private membersService:MembersService *****WOULD GO IN HERE INSTEAD OF FIREBASE
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public angFireDatabase: AngularFireDatabase) {
-    // this.members = angFireDatabase.list('/Members'); 
+    this.members = angFireDatabase.list('/Members'); 
     this.myPhotosRef = firebase.storage().ref('/Photos/');
  }
 
   getMembers(): void {
     // this.membersService.getMembers().then(members => this.members = members);
-    this.members = this.angFireDatabase.list('/Members');
+    // this.members = this.angFireDatabase.list('/Members');
+    this.members = this.angFireDatabase.list('Members', {
+      query: {
+        orderByChild: 'mName'
+      }
+    });
   }
 
   ngOnInit(): void {
     this.getMembers();
   }
 
-   swipeEvent(memberID): void{
+   swipeEvent(memberID, member): void{
+     var oldRef = firebase.storage().refFromURL(member.image);
     let prompt = this.alertCtrl.create({
       title: 'Remove Member',
       message: 'This will permanently remove member',
@@ -54,8 +60,12 @@ export class MembersPage implements OnInit{
         {
           text: 'Remove',
           handler: data => {
+            oldRef.delete().then(function(){
+              // File deleted successfully
+            }).catch(function(error){
+              // an error occurred
+            });
             this.members.remove(memberID);
-  
           }
         }
       ]

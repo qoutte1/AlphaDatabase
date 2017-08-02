@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { Camera } from 'ionic-native';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { EditInfoPage } from '../info/edit-info';
 // import firebase from 'firebase';
 
 /**
@@ -35,7 +36,11 @@ export class InfoPage {
 
 
 
-
+ editInfo(event, member){
+    this.navCtrl.push(EditInfoPage, {
+      member: member
+    });
+  }
 
 
 

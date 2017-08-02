@@ -1,20 +1,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add Member</ion-title>
+    <ion-title>Edit Info</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content *ngIf="memb">
     <ion-item>
         <ion-avatar item-start>
-            <img src="{{myPhotoURL}}">
+            <img src="{{ memb.image }}">
             <!--<ion-note class = "pclass">Alpha</ion-note>-->
         </ion-avatar>
          <ion-buttons end>
-            <button ion-button color="danger" clear (click)="selectPhoto()">
+            <button ion-button color="danger" clear (click)="selectPhoto(memb)">
             add photo
             </button>
         </ion-buttons>
@@ -23,46 +23,46 @@
 <ion-list>
       <ion-list-header>Info:</ion-list-header>
       
-      <ion-item>
-            <ion-input type="text" [(ngModel)]="nm" placeholder="name"></ion-input>
+      <ion-item >
+            <ion-input type="text" [(ngModel)]="nm" placeholder="name: {{memb.mName}}"></ion-input>
       </ion-item>
 
       <ion-item>
-            <ion-input type="text" [(ngModel)]="yr" placeholder="pledge class"></ion-input>
+            <ion-input type="text" [(ngModel)]="yr" placeholder="pledge class: {{memb.year}}"></ion-input>
       </ion-item>
 
       <ion-item>
-            <ion-input type="text" [(ngModel)]="ph" placeholder="phone"></ion-input>
+            <ion-input type="text" [(ngModel)]="ph" placeholder="phone: {{memb.phone}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="email" [(ngModel)]="em" placeholder="tu email"></ion-input>
+            <ion-input type="email" [(ngModel)]="em" placeholder="tu email: {{memb.email}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="bd" placeholder="birthday"></ion-input>
+            <ion-input type="text" [(ngModel)]="bd" placeholder="bday: {{memb.birthday}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="bg" placeholder="big's (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="bg" placeholder="bigs: {{memb.bigs}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="lt" placeholder="little's (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="lt" placeholder="littles: {{memb.lits}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="mj" placeholder="major"></ion-input>
+            <ion-input type="text" [(ngModel)]="mj" placeholder="major: {{memb.major}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="eg" placeholder="expected grad"></ion-input>
+            <ion-input type="text" [(ngModel)]="eg" placeholder="exp grad: {{memb.expGrad}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="td" placeholder="tu id"></ion-input>
+            <ion-input type="text" [(ngModel)]="td" placeholder="tu id: {{memb.tuID}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="ad" placeholder="local address"></ion-input>
+            <ion-input type="text" [(ngModel)]="ad" placeholder="local address: {{memb.address}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="rm" placeholder="roomates (if no brothers type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="rm" placeholder="roomates: {{memb.roomates}}"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="hs" placeholder="clubs/extra-ciriculars (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="hs" placeholder="clubs/extra: {{memb.hobbies}}"></ion-input>
       </ion-item>
       <ion-item>
             <ion-label>Executive Position</ion-label>
@@ -81,6 +81,6 @@
             </ion-select>
       </ion-item>
 </ion-list>
-<button ion-button block (click)="memberAdd(data)">add member</button>
+<button ion-button block (click)="memberEdit(memb)">edit member</button>
 
 </ion-content>

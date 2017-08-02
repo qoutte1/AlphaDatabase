@@ -17,7 +17,7 @@
 <ion-content class="bg-style">
   
 
-  <ion-card class="custom" *ngFor="let member of members | async" (click) = "itemSelected($event, member)" (swipe)="swipeEvent(member.$key)">
+  <ion-card class="custom" *ngFor="let member of members | async" (click) = "itemSelected($event, member)" (swipe)="swipeEvent(member.$key, member)">
   <ion-item>
     <ion-avatar item-start>
       <img class = "profilepicsize" src="{{member.image}}">
