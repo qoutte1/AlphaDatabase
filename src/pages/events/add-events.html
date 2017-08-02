@@ -21,7 +21,7 @@
             <!-- <ion-datetime displayFormat="h:mm a" [(ngModel)]="tm" placeholder="event time"></ion-datetime> -->
             <ion-label>event time</ion-label>
                 <ion-select [(ngModel)]="tm" interface="popover">
-                    <ion-option value="1:00">1:00</ion-option>
+                    <ion-option value="1:00" selected="true">1:00</ion-option>
                     <ion-option value="2:00">2:00</ion-option>
                     <ion-option value="3:00">3:00</ion-option>
                     <ion-option value="4:00">4:00</ion-option>
@@ -32,11 +32,11 @@
                     <ion-option value="9:00">9:00</ion-option>
                     <ion-option value="10:00">10:00</ion-option>
                     <ion-option value="11:00">11:00</ion-option>
-                    <ion-option value="12:00" checked="true" selected="true">12:00</ion-option>
+                    <ion-option value="12:00">12:00</ion-option>
                 </ion-select>
                 <ion-select [(ngModel)]="ampm" interface="popover">
-                    <ion-option value="am" checked="true" selected="true">am</ion-option>
-                    <ion-option value="pm">pm</ion-option>
+                    <ion-option value="am">am</ion-option>
+                    <ion-option value="pm" selected="true">pm</ion-option>
                 </ion-select>
       </ion-item>
       <ion-item>

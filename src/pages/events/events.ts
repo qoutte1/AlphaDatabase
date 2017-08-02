@@ -13,12 +13,7 @@ export class EventsPage{
 
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
-    //  this.events = angFireDatabase.list('/Events');
-    this.events = this.angFireDatabase.list('Events', {
-      query: {
-        orderByChild: 'evDate'
-      }
-    });
+     this.events = angFireDatabase.list('/Events');
   }
 
   swipeEvent(eventID): void{
