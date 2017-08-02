@@ -14,6 +14,7 @@ import { AddPledgesPage } from '../pages/pledges/add-pledges';
 import { PhotolibPage } from '../pages/photolib/photolib';
 import { EventsPage } from '../pages/events/events';
 import { AddEventsPage } from '../pages/events/add-events';
+import { EditInfoPage } from '../pages/info/edit-info';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -56,6 +57,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     PhotolibPage,
     EventsPage,
     AddEventsPage,
+    EditInfoPage,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +81,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     PhotolibPage,
     EventsPage,
     AddEventsPage,
+    EditInfoPage,
   ],
   providers: [
     StatusBar,

@@ -18,7 +18,13 @@ export class PledgesPage{
   
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
-      this.pledges = angFireDatabase.list('/Pledges');
+      //this.pledges = angFireDatabase.list('/Pledges');
+      this.pledges = this.angFireDatabase.list('Pledges', {
+      query: {
+        orderByChild: 'pName'
+      }
+    });
+
       this.myPhotosRef = firebase.storage().ref('/PledgePhotos/');
   }
 
