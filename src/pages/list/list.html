@@ -3,21 +3,189 @@
     <button ion-button menuToggle >
       <ion-icon name="menu" ></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Executive</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
+<!--maybe change bg-style-->
+<ion-content text-wrap class="bg-style"> 
+    <div *ngFor="let member of members | async">
+  <ion-card *ngIf="member.position != 'None'">
+  <ion-item class="custom">
+      <h2>{{member.position}}</h2>
+  </ion-item>
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{member.image}}">
+     <!--<ion-row>
+     <ion-col center text-left>
+        <ion-note>{{member.year}}</ion-note>
+      </ion-col>
+      </ion-row>-->
+    </ion-avatar>
+
+    <h2>{{member.mName}}</h2>
+  </ion-item>
+
+  <!------------------------------------------------------------>
+  <ion-item class="new-text">
+     <h3>Contact</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>{{member.phone}}</p>
+        <p>{{member.email}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  
+  <!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'President'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Directly supervises the following officers and meets with them monthly: Vice President, Treasurer, 
+Secretary, Recruitment Director, Membership Education Director, Scholarship Director, Alumni Director, 
+Marshal, and Sergeant-at-Arms.  </p>
+        <p>-Chairs the weekly Prudential Board meeting, which includes developing a prepared agenda for every  
+meeting and ensuring that the board meets weekly at a standard time in a standard place.  </p>
+        <p>-Chairs all chapter/provisional chapter meetings, which includes working with the Secretary to prepare 
+an agenda for every meeting and ensuring that the chapter/ provisional chapter meets weekly at a 
+standard time in a standard place.   </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+<!------------------------------------------------------------>
+<ion-item class="new-text"  *ngIf="member.position == 'Vice President'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Directly supervises the following officers and meets as a cabinet monthly: Brotherhood Retention 
+Director, Philanthropy Director, Community Service Director, Social Director, and Athletic Director. </p>
+        <p>-Assists the President with all duties and fills in for the President should the need arise.</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+<!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'Treasurer'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Directly supervises the Fundraising Director and House Manager and meets with them monthly. </p>
+        <p>-Serves as the primary liaison to Legacy Financial.</p>
+        <p>-Prepares a chapter/provisional chapter budget prior to each term to be approved by the Prudential 
+Board  and  ultimately  the  entire  chapter/provisional  chapter  through  seeking  budget  requests  from                   
+chapter/provisional chapter officers</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'Secretary'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Records minutes of all regular and special meetings with accuracy and fullness.  </p>
+        <p>-Distributes and posts the minutes within 48 hours after the conclusion of the meeting and ensures a 
+copy of the minutes are preserved in the chapter/provisional chapter archives on an online cloud. </p>
+        <p>-Calls the roll at all regular and special chapter/provisional chapter meetings along with required 
+chapter/provisional chapter events (ritualistic ceremonies, retreats, etc.)</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'Recruitment Director'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Creates a detailed and complete recruitment calendar/plan focused on 365 recruitment prior to the 
+start of each academic term  </p>
+        <p>-Develops a summer recruitment program that aligns with IFC/University Policy. </p>
+        <p>-Divides the chapter into recruitment teams including selecting team captains. </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'Membership Education Director'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Ensures that the new member education program is implemented in a manner consistent with the New 
+Member Education section of the ‘Better Man Program’.    </p>
+        <p>-Serves as the lead facilitator for all new member meetings and brother education meetings in the 
+‘Better Man Program’.  </p>
+        <p>-Develops a calendar for Alpha Phase to distribute to all new members and Brothers.  </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+  <ion-item class="new-text"  *ngIf="member.position == 'Scholarship Director'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly. </p>
+        <p>-Coordinates and implements the To Better the Man Scholarship application and selection process    </p>
+        <p>-Advises all potential members and members on academic expectations (minimum 2.5 GPA) and 
+requirements to receive a bid, be initiated, be in good standing, hold an office, attend social events, 
+participate in intramurals, etc.   </p>
+        <p>-Develops, implements, and assesses a chapter/provisional chapter scholarship program for all 
+members that is customized for each member based on academic standing, major, need, etc.  </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+<!------------------------------------------------------------>
+<ion-item class="new-text"  *ngIf="member.position == 'Alumni Director'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Member of the Prudential Board which meets weekly.  </p>
+        <p>-Directly supervises Family Relations Director and meets monthly. </p>
+        <p>-In conjunction with the Chapter Alumni Association, organizes a SIG Bust annually for the purpose of 
+fostering alumni relations typically during homecoming, Founders Day, or the anniversary of the 
+chapter’s chartering. </p>
+        <p>-Produces at least two alumni newsletters annually in conjunction with the Alumni Association. </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+<ion-item class="new-text"  *ngIf="member.position == 'Marshal'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Directs all ritual ceremonies and ensures that the following ritualistic ceremonies are performed 
+correctly (proper tone and environment):  </p>
+        <ion-note>Initiation Ceremony/ Pinnacle Week (at least twice a year)</ion-note>
+        <ion-note>Pledge Ceremony (at least twice a year)</ion-note>
+        <ion-note>Black Lantern Processional (at least once a year)</ion-note>
+        <ion-note>Senior Service Ceremony (as needed)</ion-note>
+        <ion-note>Officer Installation (once a year)</ion-note>
+        <ion-note>Chapter Meeting Opening/Closing (at least once a month)  </ion-note>
+        <p>-Vice-Chair of the Standards Board.  </p>
+        <p>-Leads all newly initiated brothers in the Ritual Education program as outlined in the Ritual Book.   </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!------------------------------------------------------------>
+<ion-item class="new-text"  *ngIf="member.position == 'Sergeant-at-Arms'">
+     <h3>Duties</h3>
+     <ion-row>
+      <ion-col center text-left>
+        <p>-Chairs the Standards Board and makes appointments to the Standards Board, pending Prudential 
+Board approval. The board should be representative of the chapter/provisional chapter 
+membership. </p>
+        <p>-Supervises the Risk Management Director and meets with them monthly.    </p>
+        <p>-Assists the Marshal in the presentation of all ritualistic ceremonies and fills in should the need arise.    </p>
+        <p>-Maintains all items that reflect the history of the chapter, along with all ritual equipment. </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  
+  
+  
+    </ion-card>
   </div>
+    
 </ion-content>

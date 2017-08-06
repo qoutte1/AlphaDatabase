@@ -14,9 +14,11 @@ export class AddEventsPage {
 
   public da: any; //date
   public in: any; //info
-  public tm: any; //time
+  public tm: string = "12:00"; //time
   public ti: any; //title
-  public ampm: any; // am or pm
+  public ampm: string = "am"; // am or pm
+  public etm: string = "12:00"; //end time
+  public eampm: string = "pm"; //end am or pm
 
   
 
@@ -28,10 +30,12 @@ export class AddEventsPage {
   eventAdd(): void {
        this.events.push({
            evDate: this.da,
-           evInfo: this.in,
            evTime: this.tm,
            evAMPM: this.ampm,
+           evEndTime: this.etm,
+           evEndAMPM: this.eampm,
            evTitle: this.ti,
+           evInfo: this.in
        });
 
       

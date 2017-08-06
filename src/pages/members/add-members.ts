@@ -30,7 +30,7 @@ export class AddMembersPage {
   public ad: any;
   public rm: any;
   public hs: any;
-  public po: string;
+  public po: string = "None";
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {

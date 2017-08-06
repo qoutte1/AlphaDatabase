@@ -19,7 +19,7 @@
   <ion-card (swipe)="swipeEvent(event.$key)">
   <ion-item class="custom">
       <h2>{{event.evDate | date}}</h2>
-      <h3 item-end>{{event.evTime}} {{event.evAMPM}}</h3>
+      <h3 item-end>{{event.evTime}} {{event.evAMPM}} - {{event.evEndTime}} {{event.evEndAMPM}}</h3>
   </ion-item>
   <ion-item class="new-text">
     <h2 item-start>{{event.evTitle}}</h2>
