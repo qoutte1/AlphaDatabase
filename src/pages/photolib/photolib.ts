@@ -91,9 +91,10 @@ export class PhotolibPage implements OnInit{
   }
 
 
-  pressEvent(myImage){
+  pressEvent(photoID, photo): void{
 
     var album="Camera Roll";
+    var oldRef = firebase.storage().refFromURL(photo.image);
 
     let actionSheet = this.actionSheetCtrl.create({
      buttons: [
@@ -102,7 +103,20 @@ export class PhotolibPage implements OnInit{
          role: 'Save',
          handler: () => {
            console.log('Save clicked');
-           this.photoLibrary.saveImage(myImage, album, null);
+           this.photoLibrary.saveImage(photo.image, album, null);
+         }
+       },
+        {
+         text: 'Delete Image',
+         role: 'Delete',
+         handler: () => {
+           console.log('Delete clicked');
+           oldRef.delete().then(function(){
+             //File delete successfully
+           }).catch(function(error){
+            // and error occured
+           });
+           this.gallery.remove(photoID);
          }
        },
        {
