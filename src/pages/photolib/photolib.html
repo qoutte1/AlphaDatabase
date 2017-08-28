@@ -18,7 +18,7 @@
 
     <ion-grid >
         <ion-row>
-            <ion-col *ngFor="let photo of gallery | async" col-6><ion-card><img src="{{photo.image}}" #myImage (click) = "presentImage(myImage)" (press)="pressEvent(photo.$key, photo)"/></ion-card></ion-col>
+            <ion-col *ngFor="let photo of gallery | async" col-6><ion-card><img [src]="photo.image" #myImage (click) = "presentImage(myImage)" (press)="pressEvent(photo.$key, myImage)"/></ion-card></ion-col>
         </ion-row>
     </ion-grid>
   

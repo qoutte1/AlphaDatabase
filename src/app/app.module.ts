@@ -19,7 +19,8 @@ import { EditInfoPage } from '../pages/info/edit-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { File } from '@ionic-native/file';
+import {FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -27,6 +28,7 @@ import { AngularFireModule } from 'angularfire2';
 import { Camera } from '@ionic-native/camera';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { PhotoLibrary } from '@ionic-native/photo-library';
+import { Clipboard } from '@ionic-native/clipboard';
 //import { PhotoViewer } from '@ionic-native/photo-viewer';
 // import { ImageProvider } from '../providers/image-provider';
 // import { FirebaseService } from './../providers/firebase-service';
@@ -58,6 +60,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     EventsPage,
     AddEventsPage,
     EditInfoPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,10 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     SplashScreen,
     Camera,
     PhotoLibrary,
+    File,
+    FileTransfer,
+    FileTransferObject,
+    Clipboard,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

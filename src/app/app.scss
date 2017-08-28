@@ -16,9 +16,19 @@
 // automatically applied to the <body> element in the app.
 
 .custom{
-    background-color: #ECEFF1;
+    background-color: #FAFAFA; //ECEFF1
 }
 
+@font-face {
+  font-family: 'NotoSans';
+  src: url('../assets/fonts/NotoSans-Regular.woff2') format('woff2'), url('../assets/fonts/NotoSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+  font-family: 'NotoSans' !important;
+}
 
 // .custom .item {
 //   background-color: transparent;
@@ -38,21 +48,23 @@
     height: 60px;
     margin-top: 0px;
     margin-bottom: -32px;
-    border-bottom:1px solid;   /*Bottom border for each menu item*/
-    text-align: center;
-    color: #9E9E9E;
+    border-bottom: 1px solid;   /*Bottom border for each menu item*/
+    border-color: #F5F5F5;
+    text-align: left;
+    color: black;
 }
 
 .custom button:hover{
-    background-color: #B0BEC5;
-    color: white;
+   // background-color: #B0BEC5;
+    background-color: #F5F5F5;
+    color: #00838F;
 }
 
 
 
 
 .bg-style {
-        background: #F5F5F5;
+        background: #FAFAFA; //#F5F5F5
         //#EEEEEE
         //#FAFAFA
     }

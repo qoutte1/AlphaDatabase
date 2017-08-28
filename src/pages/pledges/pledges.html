@@ -17,7 +17,7 @@
 
 <ion-content text-wrap class="bg-style">
 
-  <ion-card class="custom" *ngFor="let pledge of pledges | async" (swipe)="swipeEvent(pledge.$key)">
+  <ion-card class="custom" *ngFor="let pledge of pledges | async" (press)="holdEvent(pledge.$key, pledge)">
   <ion-item>
     <ion-avatar item-start>
       <img class = "profilepicsize" src="{{pledge.image}}">

@@ -9,7 +9,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { Camera } from 'ionic-native';
 // import { ImageProvider } from '../../providers/image-provider';
 import firebase from 'firebase';
-
+import { Clipboard } from '@ionic-native/clipboard';
+import { ActionSheetController } from 'ionic-angular'
 
 @Component({
   selector: 'page-members',
@@ -26,9 +27,10 @@ export class MembersPage implements OnInit{
 
 
 // private membersService:MembersService *****WOULD GO IN HERE INSTEAD OF FIREBASE
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public angFireDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public angFireDatabase: AngularFireDatabase, private clipboard: Clipboard, public actionSheetCtrl: ActionSheetController) {
     this.members = angFireDatabase.list('/Members'); 
     this.myPhotosRef = firebase.storage().ref('/Photos/');
+
  }
 
   getMembers(): void {
@@ -45,11 +47,51 @@ export class MembersPage implements OnInit{
     this.getMembers();
   }
 
+  holdEvent(memberID, member){
+    let actionSheet = this.actionSheetCtrl.create({
+     buttons: [
+       {
+         text: 'Copy phone',
+         role: 'copy',
+         handler: () => {
+           this.clipboard.copy(member.phone);
+           console.log('copy phone clicked');
+         }
+       },
+       {
+         text: 'Copy email',
+         role: 'copy',
+         handler: () => {
+           this.clipboard.copy(member.email);
+           console.log('copy email clicked');
+         }
+       },
+        {
+         text: 'Delete member',
+         role: 'delete',
+         handler: () => {
+           this.swipeEvent(memberID, member);
+           
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel',
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       }
+     ]
+   });
+
+   actionSheet.present();
+  }
+
    swipeEvent(memberID, member): void{
      var oldRef = firebase.storage().refFromURL(member.image);
     let prompt = this.alertCtrl.create({
-      title: 'Remove Member',
-      message: 'This will permanently remove member',
+      title: 'Are you sure?',
+      message: 'This will permanently remove member.',
       buttons: [
         {
           text: 'Cancel',

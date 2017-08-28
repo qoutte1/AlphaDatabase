@@ -3,6 +3,7 @@ import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Camera } from 'ionic-native';
 import firebase from 'firebase';
+import { ActionSheetController } from 'ionic-angular'
 import { AddPledgesPage } from './add-pledges';
 
 @Component({
@@ -17,7 +18,7 @@ export class PledgesPage{
 
   
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
       //this.pledges = angFireDatabase.list('/Pledges');
       this.pledges = this.angFireDatabase.list('Pledges', {
       query: {
@@ -28,10 +29,51 @@ export class PledgesPage{
       this.myPhotosRef = firebase.storage().ref('/PledgePhotos/');
   }
 
-  swipeEvent(pledgeID): void{
+   holdEvent(pledgeID, pledge){
+    let actionSheet = this.actionSheetCtrl.create({
+     buttons: [
+      //  {
+      //    text: 'Copy phone',
+      //    role: 'copy',
+      //    handler: () => {
+      //      this.clipboard.copy(member.phone);
+      //      console.log('copy phone clicked');
+      //    }
+      //  },
+      //  {
+      //    text: 'Copy email',
+      //    role: 'copy',
+      //    handler: () => {
+      //      this.clipboard.copy(member.email);
+      //      console.log('copy email clicked');
+      //    }
+      //  },
+        {
+         text: 'Delete pledge',
+         role: 'delete',
+         handler: () => {
+           this.swipeEvent(pledgeID, pledge);
+           
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel',
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       }
+     ]
+   });
+
+   actionSheet.present();
+  }
+
+  swipeEvent(pledgeID, pledge): void{
+    var oldRef = firebase.storage().refFromURL(pledge.image);
     let prompt = this.alertCtrl.create({
-      title: 'Remove Pledge',
-      message: 'This will permanently remove pledge',
+      title: 'Are you sure?',
+      message: 'This will permanently remove pledge.',
       buttons: [
         {
           text: 'Cancel',
@@ -42,6 +84,11 @@ export class PledgesPage{
         {
           text: 'Remove',
           handler: data => {
+            oldRef.delete().then(function(){
+              // File deleted successfully
+            }).catch(function(error){
+              // an error occurred
+            });
             this.pledges.remove(pledgeID);
   
           }

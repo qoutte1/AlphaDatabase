@@ -14,9 +14,15 @@ page-members {
 //     // height: 60px;
 //     color: #9E9E9E;
 // }
+// .custom {
+//     -webkit-user-select: text;
+//     -moz-user-select: text;
+//     -ms-user-select: text;
+//     user-select: text;
+// }
 
 .custom :active{
-    background-color: #ECEFF1;
+    background-color: #FAFAFA; //ECEFF1
     //#B0BEC5
     color: #00838F;
 }
