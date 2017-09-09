@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
 
 import { MyApp } from './app.component';
 import { MembersPage } from '../pages/members/members';
@@ -29,6 +31,7 @@ import { Camera } from '@ionic-native/camera';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Clipboard } from '@ionic-native/clipboard';
+import { Crop } from '@ionic-native/crop';
 //import { PhotoViewer } from '@ionic-native/photo-viewer';
 // import { ImageProvider } from '../providers/image-provider';
 // import { FirebaseService } from './../providers/firebase-service';
@@ -43,6 +46,12 @@ import { Clipboard } from '@ionic-native/clipboard';
     storageBucket: "alpha-f1c44.appspot.com",
     messagingSenderId: "1090009710779"
   }; 
+
+  const cloudSettings: CloudSettings = {
+    'core': {
+      'app_id': 'APP_ID'
+    }
+  };
 
 
 @NgModule({
@@ -69,6 +78,7 @@ import { Clipboard } from '@ionic-native/clipboard';
     IonicImageViewerModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -95,6 +105,7 @@ import { Clipboard } from '@ionic-native/clipboard';
     FileTransfer,
     FileTransferObject,
     Clipboard,
+    Crop,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

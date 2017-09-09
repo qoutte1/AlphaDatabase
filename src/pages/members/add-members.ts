@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Crop } from '@ionic-native/crop';
 import firebase from 'firebase';
 
 
@@ -33,7 +34,7 @@ export class AddMembersPage {
   public po: string = "None";
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase, private crop: Crop) {
     this.myPhotosRef = firebase.storage().ref('/Photos/');
     this.members = this.angFireDatabase.list('/Members');
   }
@@ -67,16 +68,24 @@ export class AddMembersPage {
 
   selectPhoto(): void {
     Camera.getPicture({
+      allowEdit: true,
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: Camera.DestinationType.DATA_URL,
       quality: 100,
       encodingType: Camera.EncodingType.PNG,
     }).then(imageData => {
       this.myPhoto = imageData;
-      this.uploadPhoto();
+      this.cropPhoto();
+     // this.uploadPhoto();
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
     });
+  }
+
+  cropPhoto(): void {
+    this.crop.crop(this.myPhoto, {quality: 100});
+    
+    this.uploadPhoto();
   }
 
   private uploadPhoto(): void {

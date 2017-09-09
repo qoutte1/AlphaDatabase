@@ -14,8 +14,8 @@
             <!--<ion-note class = "pclass">Alpha</ion-note>-->
         </ion-avatar>
          <ion-buttons end>
-            <button ion-button color="danger" clear (click)="selectPhoto()">
-            add photo
+            <button ion-button color="secondary" clear (click)="selectPhoto()">
+            Add Photo
             </button>
         </ion-buttons>
     </ion-item>
@@ -24,45 +24,45 @@
       <ion-list-header>Info:</ion-list-header>
       
       <ion-item>
-            <ion-input type="text" [(ngModel)]="nm" placeholder="name"></ion-input>
+            <ion-input type="text" [(ngModel)]="nm" placeholder="Name"></ion-input>
       </ion-item>
 
       <ion-item>
-            <ion-input type="text" [(ngModel)]="yr" placeholder="pledge class"></ion-input>
+            <ion-input type="text" [(ngModel)]="yr" placeholder="Pledge Class"></ion-input>
       </ion-item>
 
       <ion-item>
-            <ion-input type="text" [(ngModel)]="ph" placeholder="phone (xxx.xxx.xxxx)"></ion-input>
+            <ion-input type="text" [(ngModel)]="ph" placeholder="Phone (xxx.xxx.xxxx)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="email" [(ngModel)]="em" placeholder="tu email"></ion-input>
+            <ion-input type="email" [(ngModel)]="em" placeholder="TU Email"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="bd" placeholder="birthday (mm/dd/yyyy)"></ion-input>
+            <ion-input type="text" [(ngModel)]="bd" placeholder="Birthday (mm/dd/yyyy)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="bg" placeholder="big's (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="bg" placeholder="Big's (if none type: None)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="lt" placeholder="little's (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="lt" placeholder="Little's (if none type: None)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="mj" placeholder="major"></ion-input>
+            <ion-input type="text" [(ngModel)]="mj" placeholder="Major"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="eg" placeholder="expected grad (i.e. Fall 2017)"></ion-input>
+            <ion-input type="text" [(ngModel)]="eg" placeholder="Expected Grad (i.e. Fall 2017)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="td" placeholder="tu id"></ion-input>
+            <ion-input type="text" [(ngModel)]="td" placeholder="TU ID"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="ad" placeholder="local address"></ion-input>
+            <ion-input type="text" [(ngModel)]="ad" placeholder="Local Address"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="rm" placeholder="roomates (if no brothers type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="rm" placeholder="Roomates (if no brothers type: None)"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="hs" placeholder="clubs/extra-ciriculars (if none type: None)"></ion-input>
+            <ion-input type="text" [(ngModel)]="hs" placeholder="Clubs/Extra-Ciriculars (if none type: None)"></ion-input>
       </ion-item>
       <ion-item>
             <ion-label>Executive Position</ion-label>
@@ -81,6 +81,6 @@
             </ion-select>
       </ion-item>
 </ion-list>
-<button ion-button block (click)="memberAdd(data)">add member</button>
+<button ion-button block (click)="memberAdd(data)">Add Member</button>
 
 </ion-content>

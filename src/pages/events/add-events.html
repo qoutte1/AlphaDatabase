@@ -14,12 +14,12 @@
       
       <ion-item>
             <!-- <ion-input type="text" [(ngModel)]="da" placeholder="event date"></ion-input> -->
-            <ion-datetime displayFormat="MMMM/D/YYYY" [(ngModel)]="da" placeholder="event date"></ion-datetime>
+            <ion-datetime displayFormat="MMMM/D/YYYY" [(ngModel)]="da" placeholder="Event Date"></ion-datetime>
       </ion-item>
       <ion-item>
             <!-- <ion-input type="email" [(ngModel)]="tm" placeholder="event time"></ion-input> -->
             <!-- <ion-datetime displayFormat="h:mm a" [(ngModel)]="tm" placeholder="event time"></ion-datetime> -->
-            <ion-label>start time</ion-label>
+            <ion-label>Start Time</ion-label>
                 <ion-select [(ngModel)]="tm" interface="popover">
                     <ion-option value="1:00">1:00</ion-option>
                     <ion-option value="2:00">2:00</ion-option>
@@ -40,7 +40,7 @@
                   </ion-select>
       </ion-item>
       <ion-item>
-            <ion-label>end time</ion-label>
+            <ion-label>End Time</ion-label>
                   
                   <ion-select [(ngModel)]="etm" interface="popover">
                     <ion-option value="1:00">1:00</ion-option>
@@ -62,12 +62,12 @@
                 </ion-select>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="ti" placeholder="event title"></ion-input>
+            <ion-input type="text" [(ngModel)]="ti" placeholder="Event Title"></ion-input>
       </ion-item>
       <ion-item>
-            <ion-input type="text" [(ngModel)]="in" placeholder="event details"></ion-input>
+            <ion-input type="text" [(ngModel)]="in" placeholder="Event Details"></ion-input>
       </ion-item>
 </ion-list>
-<button ion-button block (click)="eventAdd(data)">add event</button>
+<button ion-button block (click)="eventAdd(data)">Add Event</button>
 
 </ion-content>

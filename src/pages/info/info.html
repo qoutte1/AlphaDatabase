@@ -82,12 +82,12 @@
       <ion-col center text-left>
         <p>{{member.address}}</p>
     
-        <p *ngIf="member.roomates != 'None'">(roomates: {{member.roomates}})</p>
+        <p *ngIf="member.roomates != 'None' && member.roomates != 'none'">(roomates: {{member.roomates}})</p>
       </ion-col>
     </ion-row>
   </ion-item>
   <!------------------------------------------------------------>
-  <ion-item *ngIf="member.bigs != 'None'" class="new-text">
+  <ion-item *ngIf="member.bigs != 'None' && member.bigs != 'none'" class="new-text">
      <h3>Big's</h3>
      <ion-row>
       <ion-col center text-left>
@@ -96,7 +96,7 @@
     </ion-row>
   </ion-item>
   <!------------------------------------------------------------>
-  <ion-item *ngIf="member.lits != 'None'" class="new-text">
+  <ion-item *ngIf="member.lits != 'None' && member.lits != 'none'" class="new-text">
      <h3>Little's</h3>
      <ion-row>
       <ion-col center text-left>
@@ -105,7 +105,7 @@
     </ion-row>
   </ion-item>
 <!------------------------------------------------------------>
-  <ion-item *ngIf="member.hobbies != 'None'" class="new-text">
+  <ion-item *ngIf="member.hobbies != 'None' && member.hobbies != 'none'" class="new-text">
      <h3>Clubs/Extra-Ciriculars</h3>
 
   <ion-row>
