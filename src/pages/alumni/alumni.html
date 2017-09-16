@@ -1,29 +1,37 @@
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle >
-      <ion-icon name="menu" ></ion-icon>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Alumni</ion-title>
+
     <ion-buttons end>
-    <button ion-button icon-only>
+    <button ion-button icon-only (click)="addAlumn()">
       <ion-icon name="add"></ion-icon>
     </button>
     </ion-buttons>
+    <ion-title >Alumni</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content text-wrap class="bg-style">
+<ion-content class="bg-style">
   
-<div>
-  <ion-card>
-  <ion-item>
 
+  <ion-card class="custom" *ngFor="let alumn of alumni | async" (click) = "itemSelected($event, alumn)" (press)="holdEvent(alumn.$key, alumn)">
+  <ion-item>
+    <ion-avatar item-start>
+      <img class = "profilepicsize" src="{{alumn.image}}">
+    </ion-avatar>
+
+    <h2>{{alumn.aName}}</h2>
+    <ion-note>{{alumn.year}}</ion-note>
+    <p>{{alumn.phone}}</p>
+    <p>{{alumn.email}}</p>
   </ion-item>
-  <!------------------------------------------------------------>
-  
-    </ion-card>
-  </div>
+
+
+
+</ion-card>
+
 </ion-content>

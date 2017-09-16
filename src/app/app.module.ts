@@ -17,6 +17,8 @@ import { PhotolibPage } from '../pages/photolib/photolib';
 import { EventsPage } from '../pages/events/events';
 import { AddEventsPage } from '../pages/events/add-events';
 import { EditInfoPage } from '../pages/info/edit-info';
+import { AlumnInfoPage } from '../pages/alumn_info/alumn-info';
+import { AlumnEditInfoPage } from '../pages/alumn_info/alumn-edit-info';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -69,6 +71,8 @@ import { Crop } from '@ionic-native/crop';
     EventsPage,
     AddEventsPage,
     EditInfoPage,
+    AlumnInfoPage,
+    AlumnEditInfoPage,
     
   ],
   imports: [
@@ -95,6 +99,8 @@ import { Crop } from '@ionic-native/crop';
     EventsPage,
     AddEventsPage,
     EditInfoPage,
+    AlumnInfoPage,
+    AlumnEditInfoPage,
   ],
   providers: [
     StatusBar,

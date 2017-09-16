@@ -1,0 +1,63 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Edit Info</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content *ngIf="alum">
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{ alum.image }}">
+                <!--<ion-note class = "pclass">Alpha</ion-note>-->
+            </ion-avatar>
+             <ion-buttons end>
+                <button ion-button color="secondary" clear (click)="selectPhoto(alum)">
+                Change Photo
+                </button>
+            </ion-buttons>
+            
+        </ion-item>
+    
+    <ion-list>
+          <ion-list-header>Info:</ion-list-header>
+          
+          <ion-item >
+                <ion-input type="text" [(ngModel)]="nm" placeholder="Name: {{alum.aName}}"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="yr" placeholder="Pledge Class: {{alum.year}}"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="ph" placeholder="Phone: {{alum.phone}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="email" [(ngModel)]="em" placeholder="Email: {{alum.email}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="bd" placeholder="Birthday: {{alum.birthday}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="mj" placeholder="Major: {{alum.major}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="gr" placeholder="Graduated: {{alum.graduated}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="ad" placeholder="Address: {{alum.address}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="jb" placeholder="Job: {{alum.job}}"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="hs" placeholder="Hobbies: {{alum.hobbies}}"></ion-input>
+          </ion-item>
+
+    </ion-list>
+    <button ion-button block (click)="alumnEdit(alum)">Save Changes</button>
+    
+    </ion-content>
