@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ActionSheetController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AddEventsPage } from './add-events';
+
 
 
 @Component({
@@ -10,15 +11,40 @@ import { AddEventsPage } from './add-events';
 })
 export class EventsPage{
     events: FirebaseListObservable<any>;
+    todaysDate: string = new Date().toISOString();
+    howShow: string = "all"; //holds initial default segment
 
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
     //  this.events = angFireDatabase.list('/Events');
     this.events = this.angFireDatabase.list('Events', {
       query: {
         orderByChild: 'evDate'
       }
     });
+  }
+
+  holdEvent(eventID){
+    let actionSheet = this.actionSheetCtrl.create({
+     buttons: [
+        {
+         text: 'Delete Event',
+         role: 'delete',
+         handler: () => {
+           this.swipeEvent(eventID);
+           
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel',
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       }
+     ]
+   });
+   
+   actionSheet.present();
   }
 
   swipeEvent(eventID): void{

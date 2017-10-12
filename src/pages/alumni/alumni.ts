@@ -5,7 +5,7 @@ import { Camera } from 'ionic-native';
 import firebase from 'firebase';
 import { Clipboard } from '@ionic-native/clipboard';
 import { ActionSheetController } from 'ionic-angular';
-//import { AddAlumniPage } from './add-alumni';
+import { AddAlumniPage } from './add-alumni';
 import { AlumnInfoPage } from '../alumn_info/alumn-info';
 
 @Component({
@@ -21,18 +21,15 @@ export class AlumniPage{
   
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase, private clipboard: Clipboard, public actionSheetCtrl: ActionSheetController) {
-      //this.alumni = angFireDatabase.list('/Alumni');
-      this.myPhotosRef = firebase.storage().ref('/Photos/');
-      this.getAlumni();
-  }
-
-  getAlumni(): void{
     this.alumni = this.angFireDatabase.list('Alumni', {
       query: {
         orderByChild: 'aName'
       }
     });
+      this.myPhotosRef = firebase.storage().ref('/Photos/');
+      
   }
+
 
   holdEvent(alumnID, alumn){
     let actionSheet = this.actionSheetCtrl.create({
@@ -104,8 +101,45 @@ export class AlumniPage{
  }
 
  addAlumn(){
-   //this.navCtrl.push(AddAlumniPage);
- }
+  this.navCtrl.push(AddAlumniPage);
+}
+
+//--------------------------------------------------------------------
+//-------------------------------------------------------------------
+
+ selectPhoto(): void {
+  Camera.getPicture({
+    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: Camera.DestinationType.DATA_URL,
+    quality: 100,
+    encodingType: Camera.EncodingType.PNG,
+  }).then(imageData => {
+    this.myPhoto = imageData;
+    this.uploadPhoto();
+  }, error => {
+    console.log("ERROR -> " + JSON.stringify(error));
+  });
+}
+
+private uploadPhoto(): void {
+  this.myPhotosRef.child(this.generateUUID()).child('myPhoto.png')
+    .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
+    .then((savedPicture) => {
+      this.myPhotoURL = savedPicture.downloadURL; //**USING downloadURL TO DISPLAY PHOTO */
+    });
+    
+}
+
+private generateUUID(): any {
+  var d = new Date().getTime();
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+    var r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+  return uuid;
+}
+
 
  itemSelected(event, alumn){
   this.navCtrl.push(AlumnInfoPage, {

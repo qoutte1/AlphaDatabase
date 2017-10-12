@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar no-border-bottom>
     <button ion-button menuToggle >
       <ion-icon name="menu" ></ion-icon>
     </button>
@@ -11,32 +11,113 @@
     </ion-buttons>
     <ion-title>Events</ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="howShow">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="week">
+        Week
+      </ion-segment-button>
+      <ion-segment-button value="today">
+        Today
+      </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
 </ion-header>
 
-<!--maybe change bg-style-->
-<ion-content text-wrap class="bg-style"> 
-    <div *ngFor="let event of events | async">
-  <ion-card (swipe)="swipeEvent(event.$key)">
-  <ion-item class="custom">
-      <h2>{{event.evDate | date}}</h2>
-      <h3 item-end>{{event.evTime}} {{event.evAMPM}} - {{event.evEndTime}} {{event.evEndAMPM}}</h3>
-  </ion-item>
-  <ion-item class="new-text">
-    <h2 item-start>{{event.evTitle}}</h2>
-  </ion-item>
 
-  <!------------------------------------------------------------>
-  <ion-item>
-     <h3>Info:</h3>
-     <ion-row>
-      <ion-col center text-left>
-        <p>{{event.evInfo}}</p>
-      </ion-col>
-    </ion-row>
-  </ion-item>
+<!------------------------------------------------------------>
+<!------------------------------------------------------------>
+
+
+<ion-content text-wrap class="bg-style"> 
+<div [ngSwitch]="howShow">
   
 
-    </ion-card>
-  </div>
+  <!------------------------------------------------------------> 
+  <!------------------------------------------------------------>
+  <!-- <h3 *ngIf="event.evDate == todaysDate | date">Today:</h3> -->
+  <div *ngSwitchCase="'all'" >
+      <div *ngFor="let event of events | async">
+      <ion-card  (press)="holdEvent(event.$key)">
+          <ion-item class="custom">
+              <h2>{{event.evDate | date}}</h2>
+              <h3 item-end>{{event.evTime}} {{event.evAMPM}} - {{event.evEndTime}} {{event.evEndAMPM}}</h3>
+          </ion-item>
+          <ion-item class="new-text">
+            <h2 item-start>{{event.evTitle}}</h2>
+          </ion-item>
+        
+          <!------------------------------------------------------------>
+          <ion-item>
+             <h3>Info:</h3>
+             <ion-row>
+              <ion-col center text-left>
+                <p>{{event.evInfo}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+      </ion-card>
+      </div>
+      </div>
+
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+
+  <div *ngSwitchCase="'week'" >
+      <div *ngFor="let event of events | async">
+      <ion-card  (press)="holdEvent(event.$key)">
+          <ion-item class="custom">
+              <h2>{{event.evDate | date}}</h2>
+              <h3 item-end>{{event.evTime}} {{event.evAMPM}} - {{event.evEndTime}} {{event.evEndAMPM}}</h3>
+          </ion-item>
+          <ion-item class="new-text">
+            <h2 item-start>{{event.evTitle}}</h2>
+          </ion-item>
+        
+          <!------------------------------------------------------------>
+          <ion-item>
+             <h3>Info:</h3>
+             <ion-row>
+              <ion-col center text-left>
+                <p>{{event.evInfo}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+      </ion-card>
+      </div>
+      </div>
+
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+
+  <div *ngSwitchCase="'today'" >
+  <div *ngFor="let event of events | async">
+  <ion-card *ngIf="(event.evDate | date) == (todaysDate | date)" (press)="holdEvent(event.$key)">
+      <ion-item class="custom">
+          <h2>{{event.evDate | date}}</h2>
+          <h3 item-end>{{event.evTime}} {{event.evAMPM}} - {{event.evEndTime}} {{event.evEndAMPM}}</h3>
+      </ion-item>
+      <ion-item class="new-text">
+        <h2 item-start>{{event.evTitle}}</h2>
+      </ion-item>
     
+      <!------------------------------------------------------------>
+      <ion-item>
+         <h3>Info:</h3>
+         <ion-row>
+          <ion-col center text-left>
+            <p>{{event.evInfo}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+  </ion-card>
+  </div>
+  </div>
+
+
+
+</div>
 </ion-content>

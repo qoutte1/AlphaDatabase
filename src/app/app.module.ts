@@ -19,6 +19,7 @@ import { AddEventsPage } from '../pages/events/add-events';
 import { EditInfoPage } from '../pages/info/edit-info';
 import { AlumnInfoPage } from '../pages/alumn_info/alumn-info';
 import { AlumnEditInfoPage } from '../pages/alumn_info/alumn-edit-info';
+import { AddAlumniPage } from '../pages/alumni/add-alumni';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,6 +35,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Clipboard } from '@ionic-native/clipboard';
 import { Crop } from '@ionic-native/crop';
+import { WheelSelector } from '@ionic-native/wheel-selector';
 //import { PhotoViewer } from '@ionic-native/photo-viewer';
 // import { ImageProvider } from '../providers/image-provider';
 // import { FirebaseService } from './../providers/firebase-service';
@@ -73,6 +75,7 @@ import { Crop } from '@ionic-native/crop';
     EditInfoPage,
     AlumnInfoPage,
     AlumnEditInfoPage,
+    AddAlumniPage,
     
   ],
   imports: [
@@ -101,6 +104,7 @@ import { Crop } from '@ionic-native/crop';
     EditInfoPage,
     AlumnInfoPage,
     AlumnEditInfoPage,
+    AddAlumniPage,
   ],
   providers: [
     StatusBar,
@@ -112,6 +116,7 @@ import { Crop } from '@ionic-native/crop';
     FileTransferObject,
     Clipboard,
     Crop,
+    WheelSelector,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

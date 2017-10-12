@@ -8,46 +8,49 @@ import firebase from 'firebase';
 
 @IonicPage()
 @Component({
-    selector: 'page-add-pledges',
-    templateUrl: 'add-pledges.html',
+    selector: 'page-add-alumni',
+    templateUrl: 'add-alumni.html',
 })
-export class AddPledgesPage {
+export class AddAlumniPage {
   
-  pledges: FirebaseListObservable<any>;
+  alumni: FirebaseListObservable<any>;
   public myPhotosRef: any;
   public myPhoto: any;
   public myPhotoURL: any;
   public image: any;
   public nm: any; //name
+  public yr: any; //year
   public ph: any; //phone
   public em: any; //email
   public bd: any; //birthday
   public mj: any; //major
-  public eg: any; //expGrad
-  public td: any; //tuID
+  public gr: any; //graduated
   public ad: any; //address
   public hs: any; //hobbies
+  public jb: any; //job
+
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public angFireDatabase: AngularFireDatabase, private crop: Crop) {
-    this.myPhotosRef = firebase.storage().ref('/PledgePhotos/');
-    this.pledges = this.angFireDatabase.list('/Pledges');
+    this.myPhotosRef = firebase.storage().ref('/Photos/');
+    this.alumni = this.angFireDatabase.list('/Alumni');
   }
 
 
-  pledgeAdd(): void {
+  alumniAdd(): void {
        this.image = this.myPhotoURL;
-       this.pledges.push({
+       this.alumni.push({
            address: this.ad,
            birthday: this.bd,
            email: this.em,
-           expGrad: this.eg,
+           graduated: this.gr,
            hobbies: this.hs,
            image: this.image,
+           aName: this.nm,
            major: this.mj,
-           pName: this.nm,
            phone: this.ph,
-           tuID: this.td
+           job: this.jb,
+           year: this.yr
        });
 
       
@@ -66,7 +69,7 @@ export class AddPledgesPage {
     }).then(imageData => {
       this.myPhoto = imageData;
       this.cropPhoto();
-      //this.uploadPhoto();
+     // this.uploadPhoto();
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
     });

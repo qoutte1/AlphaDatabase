@@ -1,0 +1,62 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Add Alumni</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{myPhotoURL}}">
+                <!--<ion-note class = "pclass">Alpha</ion-note>-->
+            </ion-avatar>
+             <ion-buttons end>
+                <button ion-button color="secondary" clear (click)="selectPhoto()">
+                Add Photo
+                </button>
+            </ion-buttons>
+        </ion-item>
+    
+    <ion-list>
+          <ion-list-header>Info: (do not leave anything blank)</ion-list-header>
+          
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="nm" placeholder="Name"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="yr" placeholder="Pledge Class"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="ph" placeholder="Phone (xxx.xxx.xxxx)"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="email" [(ngModel)]="em" placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="bd" placeholder="Birthday (mm/dd/yyyy)"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="mj" placeholder="Major"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="gr" placeholder="Graduated (i.e. Fall 2017)"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="ad" placeholder="Address"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="jb" placeholder="Job"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" [(ngModel)]="hs" placeholder="Hobbies (if none type: None)"></ion-input>
+          </ion-item>
+        
+    </ion-list>
+    <button ion-button block round outline (click)="alumniAdd(data)">Add Alumni</button>
+    
+    </ion-content>

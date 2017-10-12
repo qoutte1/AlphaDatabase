@@ -49,7 +49,7 @@ export class AlumnEditInfoPage {
     let newEmail = alum.email;
     let newBday = alum.birthday;
     let newMajor = alum.major;
-    let newGrad = alum.graduate;
+    let newGrad = alum.graduated;
     let newAddress = alum.address;
     let newHobbies = alum.hobbies;
     let newJob = alum.job;

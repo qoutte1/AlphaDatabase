@@ -20,42 +20,70 @@
             <!-- <ion-input type="email" [(ngModel)]="tm" placeholder="event time"></ion-input> -->
             <!-- <ion-datetime displayFormat="h:mm a" [(ngModel)]="tm" placeholder="event time"></ion-datetime> -->
             <ion-label>Start Time</ion-label>
-                <ion-select [(ngModel)]="tm" interface="popover">
-                    <ion-option value="1:00">1:00</ion-option>
-                    <ion-option value="2:00">2:00</ion-option>
-                    <ion-option value="3:00">3:00</ion-option>
-                    <ion-option value="4:00">4:00</ion-option>
-                    <ion-option value="5:00">5:00</ion-option>
-                    <ion-option value="6:00">6:00</ion-option>
-                    <ion-option value="7:00">7:00</ion-option>
-                    <ion-option value="8:00">8:00</ion-option>
-                    <ion-option value="9:00">9:00</ion-option>
-                    <ion-option value="10:00">10:00</ion-option>
-                    <ion-option value="11:00">11:00</ion-option>
-                    <ion-option value="12:00" checked="true" selected="true">12:00</ion-option>
+                <ion-select [(ngModel)]="startH" interface="popover">
+                    <ion-option value="1">1</ion-option>
+                    <ion-option value="2">2</ion-option>
+                    <ion-option value="3">3</ion-option>
+                    <ion-option value="4">4</ion-option>
+                    <ion-option value="5">5</ion-option>
+                    <ion-option value="6">6</ion-option>
+                    <ion-option value="7">7</ion-option>
+                    <ion-option value="8">8</ion-option>
+                    <ion-option value="9">9</ion-option>
+                    <ion-option value="10">10</ion-option>
+                    <ion-option value="11">11</ion-option>
+                    <ion-option value="12" checked="true" selected="true">12</ion-option>
                 </ion-select>
+                <ion-select [(ngModel)]="startM" interface="popover">
+                  <ion-option value=":00" checked="true" selected="true">:00</ion-option>
+                  <ion-option value=":05">:05</ion-option>
+                  <ion-option value=":10">:10</ion-option>
+                  <ion-option value=":15">:15</ion-option>
+                  <ion-option value=":20">:20</ion-option>
+                  <ion-option value=":25">:25</ion-option>
+                  <ion-option value=":30">:30</ion-option>
+                  <ion-option value=":35">:35</ion-option>
+                  <ion-option value=":40">:40</ion-option>
+                  <ion-option value=":45">:45</ion-option>
+                  <ion-option value=":50">:50</ion-option>
+                  <ion-option value=":55">:55</ion-option>
+              </ion-select>
                 <ion-select [(ngModel)]="ampm" interface="popover">
                     <ion-option value="am" checked="true" selected="true">am</ion-option>
                     <ion-option value="pm">pm</ion-option>
-                  </ion-select>
+                  </ion-select> 
       </ion-item>
       <ion-item>
             <ion-label>End Time</ion-label>
                   
-                  <ion-select [(ngModel)]="etm" interface="popover">
-                    <ion-option value="1:00">1:00</ion-option>
-                    <ion-option value="2:00">2:00</ion-option>
-                    <ion-option value="3:00">3:00</ion-option>
-                    <ion-option value="4:00">4:00</ion-option>
-                    <ion-option value="5:00">5:00</ion-option>
-                    <ion-option value="6:00">6:00</ion-option>
-                    <ion-option value="7:00">7:00</ion-option>
-                    <ion-option value="8:00">8:00</ion-option>
-                    <ion-option value="9:00">9:00</ion-option>
-                    <ion-option value="10:00">10:00</ion-option>
-                    <ion-option value="11:00">11:00</ion-option>
-                    <ion-option value="12:00" checked="true" selected="true">12:00</ion-option>
+                  <ion-select [(ngModel)]="endH" interface="popover">
+                        <ion-option value="1">1</ion-option>
+                        <ion-option value="2">2</ion-option>
+                        <ion-option value="3">3</ion-option>
+                        <ion-option value="4">4</ion-option>
+                        <ion-option value="5">5</ion-option>
+                        <ion-option value="6">6</ion-option>
+                        <ion-option value="7">7</ion-option>
+                        <ion-option value="8">8</ion-option>
+                        <ion-option value="9">9</ion-option>
+                        <ion-option value="10">10</ion-option>
+                        <ion-option value="11">11</ion-option>
+                        <ion-option value="12" checked="true" selected="true">12</ion-option>
                 </ion-select>
+                <ion-select [(ngModel)]="endM" interface="popover">
+                        <ion-option value=":00" checked="true" selected="true">:00</ion-option>
+                        <ion-option value=":05">:05</ion-option>
+                        <ion-option value=":10">:10</ion-option>
+                        <ion-option value=":15">:15</ion-option>
+                        <ion-option value=":20">:20</ion-option>
+                        <ion-option value=":25">:25</ion-option>
+                        <ion-option value=":30">:30</ion-option>
+                        <ion-option value=":35">:35</ion-option>
+                        <ion-option value=":40">:40</ion-option>
+                        <ion-option value=":45">:45</ion-option>
+                        <ion-option value=":50">:50</ion-option>
+                        <ion-option value=":55">:55</ion-option>
+              </ion-select>
                 <ion-select [(ngModel)]="eampm" interface="popover">
                     <ion-option value="am" >am</ion-option>
                     <ion-option value="pm" checked="true" selected="true">pm</ion-option>
@@ -68,6 +96,7 @@
             <ion-input type="text" [(ngModel)]="in" placeholder="Event Details"></ion-input>
       </ion-item>
 </ion-list>
-<button ion-button block (click)="eventAdd(data)">Add Event</button>
+
+<button ion-button block round outline (click)="eventAdd(data)">Add Event</button>
 
 </ion-content>
